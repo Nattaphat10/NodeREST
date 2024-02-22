@@ -11,10 +11,10 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 app.use(express.static(__dirname + '/public'));
 
-app.get("/",asyns (req,res) => {
-    try{
-        const responsen = awail axios.get(base_url + '/books');
-        res.render("books",{books: response.data});
+app.get("/",async(req, res) => {
+    try {
+        const response = await axios.get(base_url + '/books');
+        res.render("book", { books: response.data});
     } catch (err){
         console.error(err);
         res.status(500).send('Error');
